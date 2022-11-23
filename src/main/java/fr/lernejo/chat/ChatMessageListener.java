@@ -3,7 +3,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ChatMessageListener {
+
+    private final ChatMessageRepository chat;
+
+    public ChatMessageListener(ChatMessageRepository chat) {
+        this.chat = chat;
+    }
+
     public void onMessage(String message) {
-        System.out.println(message);
+        chat.addChatMessage(message);
     }
 }
