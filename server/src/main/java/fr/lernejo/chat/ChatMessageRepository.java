@@ -5,7 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 @Service
 public class ChatMessageRepository {
-    List<String> messages = new ArrayList<>();
+    List<String> messages;
+
+    public ChatMessageRepository() {
+        messages = new ArrayList<>();
+    }
 
     void addChatMessage(String message) {
         if (messages.size() >= 10) {
@@ -15,6 +19,6 @@ public class ChatMessageRepository {
     }
 
     List<String> getLastTenMessages() {
-        return messages.subList(0, Math.min(messages.size(), 10));
+        return this.messages;
     }
 }
