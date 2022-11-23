@@ -8,6 +8,9 @@ public class ChatMessageRepository {
     List<String> messages = new ArrayList<>();
 
     void addChatMessage(String message) {
+        if (messages.size() >= 10) {
+            messages.remove(0);
+        }
         messages.add(message);
     }
 
